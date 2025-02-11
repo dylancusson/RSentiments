@@ -78,14 +78,14 @@ def save_to_csv(subreddit, post, comments):
 # Main function to fetch top posts and comments from multiple subreddits
 def fetch_top_posts(subreddits, post_limit=10):
     for subreddit_name in subreddits:
-        print(f"\n📌 Scraping subreddit: r/{subreddit_name}")
+        print(f"\nScraping subreddit: r/{subreddit_name}")
         subreddit = reddit.subreddit(subreddit_name)
 
         for post in subreddit.top(time_filter="day", limit=post_limit):
-            print(f"🔍 Fetching post: {post.title}")
+            print(f"Fetching post: {post.title}")
             comments = fetch_top_level_comments_with_backoff(post)
 
-            print(f"✅ Fetched {len(comments)} top-level comments for post: {post.title}")
+            print(f"Fetched {len(comments)} top-level comments for post: {post.title}")
 
             # Save to CSV
             save_to_csv(subreddit_name, post, comments)

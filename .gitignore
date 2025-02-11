@@ -2,3 +2,5 @@
 *.env
 *.bashrc
 *.zshrc
+.csv
+*.csv
